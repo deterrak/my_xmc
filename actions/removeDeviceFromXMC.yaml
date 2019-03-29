@@ -1,0 +1,57 @@
+{
+  "runner_type": "mistral-v2",
+  "name": "removeDeviceFromXMC",
+  "parameters": {
+    "skip_notify": {
+      "default": [],
+      "type": "array",
+      "description": "List of tasks to skip notifications for."
+    },
+    "task": {
+      "type": "string",
+      "description": "The name of the task to run for reverse workflow."
+    },
+    "workflow": {
+      "type": "string",
+      "description": "The name of the workflow to run if the entry_point is a workbook of many workflows. The name should be in the format \"<pack_name>.<action_name>.<workflow_name>\". If entry point is a workflow or a workbook with a single workflow, the runner will identify the workflow automatically."
+    },
+    "xmcPassword": {
+      "default": "$password$",
+      "position": 4,
+      "type": "string",
+      "description": "The XMC password login credential."
+    },
+    "context": {
+      "default": {},
+      "type": "object",
+      "description": "Additional workflow inputs."
+    },
+    "xmcUsername": {
+      "default": "root",
+      "position": 3,
+      "type": "string",
+      "description": "The XMC username login credential."
+    },
+    "deviceIpAddress": {
+      "position": 1,
+      "required": true,
+      "type": "string",
+      "description": "The IPv4 address of the device to be removed from XMC."
+    },
+    "xmcIpAddress": {
+      "default": "",
+      "position": 2,
+      "required": true,
+      "type": "string",
+      "description": "The IPv4 address of the XMC console. "
+    }
+  },
+  "tags": [],
+  "enabled": true,
+  "entry_point": "workflows/removeDeviceFromXMC.yaml",
+  "notify": {},
+  "uid": "action:my_xmc:removeDeviceFromXMC",
+  "pack": "my_xmc",
+  "ref": "my_xmc.removeDeviceFromXMC",
+  "description": "Remove a device by IPv4Address from XMC via the GraphQL North Bound Interface."
+}

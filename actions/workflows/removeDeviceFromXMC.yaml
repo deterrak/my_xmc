@@ -1,0 +1,22 @@
+---
+version: '2.0'
+
+my_xmc.removeDeviceFromXMC:
+  input:
+    - deviceIpAddress
+    - xmcIpAddress
+    - xmcUsername
+    - xmcPassword
+  tasks:
+    addXmcDevice:
+      # [248, 122]
+      action: core.http
+      input:
+        username: "<% $.xmcUsername %>"
+        password: "<% $.xmcPassword %>"
+        body: "{ \"query\": \"mutation{network{deleteDevices(input:{devices:[{ipAddress:\\\"<%$.deviceIpAddress%>\\\"}]}){message,status}}}\"}"
+        url: "https://<% $.xmcIpAddress %>:8443/nbi/graphql/"
+        headers: {"Content-Type": "application/json"}
+        allow_redirects: true
+        method: "POST"
+        verify_ssl_cert: false

@@ -1,0 +1,75 @@
+{
+  "runner_type": "mistral-v2",
+  "name": "addDeviceToXMC",
+  "parameters": {
+    "skip_notify": {
+      "default": [],
+      "type": "array",
+      "description": "List of tasks to skip notifications for."
+    },
+    "profile": {
+      "position": 3,
+      "required": true,
+      "type": "string",
+      "description": "The XMC device login credential profile that will be used to access the device. "
+    },
+    "task": {
+      "type": "string",
+      "description": "The name of the task to run for reverse workflow."
+    },
+    "workflow": {
+      "type": "string",
+      "description": "The name of the workflow to run if the entry_point is a workbook of many workflows. The name should be in the format \"<pack_name>.<action_name>.<workflow_name>\". If entry point is a workflow or a workbook with a single workflow, the runner will identify the workflow automatically."
+    },
+    "xmcPassword": {
+      "default": "$password$",
+      "position": 7,
+      "type": "string",
+      "description": "The XMC password login credential."
+    },
+    "site": {
+      "default": "/World",
+      "position": 4,
+      "type": "string",
+      "description": "The XMC site that the device will be reside."
+    },
+    "context": {
+      "default": {},
+      "type": "object",
+      "description": "Additional workflow inputs."
+    },
+    "xmcUsername": {
+      "default": "root",
+      "position": 6,
+      "type": "string",
+      "description": "The XMC username login credential."
+    },
+    "deviceName": {
+      "position": 1,
+      "required": true,
+      "type": "string",
+      "description": "The name that XMC will use for the device."
+    },
+    "deviceIpAddress": {
+      "position": 2,
+      "required": true,
+      "type": "string",
+      "description": "The IPv4 address of the device to be added to XMC."
+    },
+    "xmcIpAddress": {
+      "default": "10.174.0.10",
+      "position": 5,
+      "required": false,
+      "type": "string",
+      "description": "The IPv4 address of the XMC console. "
+    }
+  },
+  "tags": [],
+  "enabled": true,
+  "entry_point": "workflows/addDeviceToXMC.yaml",
+  "notify": {},
+  "uid": "action:my_xmc:addDeviceToXMC",
+  "pack": "my_xmc",
+  "ref": "my_xmc.addDeviceToXMC",
+  "description": "Add a device to XMC via the GraphQL North Bound Interface."
+}

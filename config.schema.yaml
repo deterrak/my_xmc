@@ -1,0 +1,21 @@
+---
+
+  path:
+    description: "The path to monitor for CSV files."
+    type: "string"
+    default: "/home/st2/addXmcDevices"
+    required: False
+
+  pollTime:
+    description: "The time interval in seconds between polling."
+    type: "integer"
+    default: 5
+    required: False
+
+  triggerTime:
+    description: "The time interval in seconds between each trigger."
+    type: "integer"
+    default: 1
+    required: False
+
+

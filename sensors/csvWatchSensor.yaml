@@ -1,0 +1,16 @@
+---
+  class_name: "csvWatchSensor"
+  entry_point: "csvWatchSensor.py"
+  description: "csvWatch sensor that emits triggers."
+  debug: True
+  trigger_types:
+    -
+      name: "csvWatchSensor"
+      description: "Triggers when a new comma seperated file is detected."
+      payload_schema:
+        type: "object"
+        properties:
+          executed_at:
+            type: "string"
+            format: "date-time"
+            default: "2014-07-30 05:04:24.578325"

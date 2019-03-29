@@ -1,0 +1,30 @@
+{
+    "action": {
+        "parameters": {
+            "deviceIpAddress": "{{trigger.deviceIpAddress}}",
+            "deviceName": "{{trigger.deviceName}}",
+            "profile": "{{trigger.profile}}",
+            "xmcIpAddress": "10.174.0.10",
+            "site": "{{trigger.site}}"
+        },
+        "ref": "my_xmc.addDeviceToXMC"
+    },
+    "criteria": {},
+    "description": "Add Devices to XMC when a CSV file is detected.",
+    "enabled": true,
+    "name": "addDeviceToXMC",
+    "pack": "my_xmc",
+    "ref": "my_xmc.addDeviceToXMC",
+    "tags": [],
+    "trigger": {
+        "parameters": {},
+        "ref": "my_xmc.csvWatchSensor",
+        "type": "my_xmc.csvWatchSensor"
+    },
+    "type": {
+        "parameters": {},
+        "ref": "standard"
+    },
+    "uid": "rule:my_xmc:addDeviceToXMC"
+}
+

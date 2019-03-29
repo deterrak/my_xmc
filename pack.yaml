@@ -1,0 +1,10 @@
+---
+ref: my_xmc
+name: my_xmc
+description: Provides workflows supporting myXmc.
+keywords:
+    - xmc
+    - csv
+version: 1.0.0
+author: Kevin DeTerra
+email: kdeterra@extremenetworks.com

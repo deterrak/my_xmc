@@ -1,0 +1,26 @@
+---
+version: '2.0'
+
+my_xmc.addDeviceToXMC:
+  input:
+    - profile
+    - xmcPassword
+    - site
+    - xmcUsername
+    - deviceName
+    - deviceIpAddress
+    - xmcIpAddress
+  tasks:
+    addXmcDevice:
+      # [105, 26]
+      action: core.http
+      input:
+        username: "<% $.xmcUsername %>"
+        password: "<% $.xmcPassword %>"
+        body: "{ \"query\": \"mutation{network{createDevices(input:{devices:[{nickName:\\\"<%$.deviceName%>\\\",ipAddress:\\\"<%$.deviceIpAddress%>\\\",profileName:\\\"<%$.profile%>\\\",siteLocation:\\\"<%$.site%>\\\"}]}){message,status}}}\"}"
+        url: "https://<% $.xmcIpAddress %>:8443/nbi/graphql/"
+        headers: {"Content-Type": "application/json"}
+        allow_redirects: true
+        method: "POST"
+        verify_ssl_cert: false
+
